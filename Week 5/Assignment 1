@@ -1,0 +1,35 @@
+# Base Class: Device
+class Device:
+    def __init__(self, brand, model):
+        self.brand = brand
+        self.model = model
+    
+    def device_info(self):
+        return f"{self.brand} {self.model}"
+
+# Subclass: Smartphone
+class Smartphone(Device):
+    def __init__(self, brand, model, os, storage):
+        super().__init__(brand, model)
+        self.os = os
+        self.storage = storage
+    
+    def install_app(self, app_name):
+        return f"Installing {app_name} on {self.device_info()} running {self.os}."
+
+# Subclass: Laptop
+class Laptop(Device):
+    def __init__(self, brand, model, os, ram):
+        super().__init__(brand, model)
+        self.os = os
+        self.ram = ram
+    
+    def code(self, language):
+        return f"Coding in {language} on {self.device_info()} with {self.ram} RAM."
+
+# Creating objects
+smartphone = Smartphone("Samsung", "Galaxy S21", "Android", "128GB")
+laptop = Laptop("Dell", "XPS 13", "Windows 11", "16GB")
+
+print(smartphone.install_app("WhatsApp"))
+print(laptop.code("Python"))
